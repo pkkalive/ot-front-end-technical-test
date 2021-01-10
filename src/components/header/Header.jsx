@@ -22,20 +22,23 @@ const useStyles = makeStyles(theme => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
   },
+  p15: {
+    paddingLeft: "15px"
+  }
 }))
 
 function Header() {
-  const styles = useStyles();
+  const classes = useStyles();
   return (
     <Fragment>
       <ElevationScroll>
         <AppBar position="fixed">
-          <Toolbar>
-            <Typography variant="h6">EMBL Coding Challenge</Typography>
+          <Toolbar disableGutters>
+            <Typography variant="h6" className={classes.p15}>EMBL Coding Challenge</Typography>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-      <div className={styles.toolbarMargin} />
+      <div className={classes.toolbarMargin} />
     </Fragment>
     // <header className={classes.heading}>
     //   <p className={classes.title}> EMBL Coding Challenge </p>
