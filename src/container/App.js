@@ -4,6 +4,7 @@ import classes from './App.module.scss';
 import theme from '../theme/Theme'
 
 const Header = lazy(() => import('../components/header/Header'))
+const Table = lazy(() => import('../components/table/TableComponent'))
 const Footer = lazy(() => import('../components/footer/Footer'))
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <p>
               Feel free to edit <code>src/App.js</code> and save to reload.
             </p>
+            <Table />
           </Suspense>
         </Suspense>
       </div>
