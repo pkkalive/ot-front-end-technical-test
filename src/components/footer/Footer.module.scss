@@ -1,0 +1,14 @@
+@import '../../theme/colors.scss';
+
+.footer {
+  flex-shrink: 0;
+  min-height: 30px;
+  padding: 0 15px;
+  background-color: $grey;
+  .content{
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    color: $white;
+  }
+}

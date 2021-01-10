@@ -1,0 +1,12 @@
+@import '../../theme/colors.scss';
+
+.heading{
+  background-color: $grey;
+  min-height: 46px;
+  padding: 0 15px;
+  .title {
+    margin: 0;
+    padding-top: 10px;
+    color: $white;
+  }
+}
