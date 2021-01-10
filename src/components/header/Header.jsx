@@ -7,7 +7,6 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
 function ElevationScroll(props) {
   const { children } = props;
-
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0
@@ -40,9 +39,6 @@ function Header() {
       </ElevationScroll>
       <div className={classes.toolbarMargin} />
     </Fragment>
-    // <header className={classes.heading}>
-    //   <p className={classes.title}> EMBL Coding Challenge </p>
-    // </header>
   )
 }
 
