@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTableData } from '../../redux/actions/TableActions';
+import { Table, TableContainer, Paper } from '@material-ui/core';
+import TableHeader from './tableHelper/TableHeader';
+import { headCells } from './tableHelper/HeadCells';
+import TableBody from './tableHelper/TableBody';
 
 function TableComponent() {
   const dispatch = useDispatch();
@@ -10,9 +14,19 @@ function TableComponent() {
     dispatch(getTableData())
   },[dispatch])
   
-  console.log(tableData);
   return (
-    <p> Here comes the table component</p>
+    <TableContainer component={Paper}>
+    {
+      tableData && (
+        <Table aria-label="collapsible table">
+          <TableHeader headCells = {headCells} />
+          <TableBody row = {tableData} />
+        </Table>
+      )
+    }
+      
+    </TableContainer>
+
   )
 }
 
