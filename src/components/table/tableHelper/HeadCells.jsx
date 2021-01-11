@@ -3,6 +3,7 @@ export const headCells = [
     id: "title",
     label : "",
     align: "right",
+    maxWidth: 10,
   },
   {
     id: "symbol",

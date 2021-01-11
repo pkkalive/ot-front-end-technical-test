@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { TableCell, TableBody, TableRow, IconButton, Collapse, Box } from '@material-ui/core';
+import { TableCell, TableBody, TableRow, IconButton, Collapse, Box, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import BarChart from '../../charts/Charts'
@@ -12,18 +12,37 @@ function Row(props) {
     "chart": {
       "type": "column",
     },
+    credits: {
+      enabled: false
+    },
     "title": {
-      "text": "Associate Score vs Data Types"
+      "text": "Associate Score vs Data Types",
+      align: "left"
     },
     "yAxis":{
-      "visible": true,
+      "lineWidth": 0,
+      "min": 0,
+      title: {
+        text: "Score"
+      },
     },
     "xAxis": {
       "type": "category",
+      "categories": ["literature", "rna_expression", "genetic_association", 
+        "somatic_mutation", "known_drug", "animal_model", "affected_pathway"],
+      "tickmarkPlacement": 'on',
+      labels: {
+        rotation: 315,
+      },
+      title: {
+        text: "Data"
+      },
+      "lineWidth": 0,
     },
     legend: {
       enabled: false
     },
+    colors: ["#398ac8"],
     "series": [{data: row.datatypes}]
   }
 
@@ -32,16 +51,20 @@ function Row(props) {
       "polar": true,
       "type": 'line'
     },
+    credits: {
+      enabled: false
+    },
     "title": {
       "text": "Associate Score vs Data Types",
-      x: -80
+      align: "left"
     },
     
     "xAxis": {
       "categories": ["literature", "rna_expression", "genetic_association", 
         "somatic_mutation", "known_drug", "animal_model", "affected_pathway"],
       "tickmarkPlacement": 'on',
-      "lineWidth": 0
+      "lineWidth": 0,
+      "type": "category",
     },
     "yAxis": {
       "gridLineInterpolation": 'circle',
@@ -51,6 +74,7 @@ function Row(props) {
     "legend": {
       "enabled": false
     },
+    colors: ["#398ac8"],
     "series": [
       {
         "data": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7],
@@ -62,9 +86,9 @@ function Row(props) {
   return (
     <Fragment>
       <TableRow>
-        <TableCell>
+        <TableCell width={15}>
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
-            {open ? <RemoveIcon /> : <AddIcon />}
+            {open ? <RemoveIcon fontSize="large"/> : <AddIcon fontSize="large"/>}
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">{row.symbol}</TableCell>
@@ -76,8 +100,14 @@ function Row(props) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
-              <BarChart options={barOptions} />
-              <BarChart options={spiderWebOptions} />
+              <Grid container spacing={2} >
+                <Grid item xs={12} sm={6}>
+                  <BarChart options={barOptions} />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <BarChart options={spiderWebOptions} />
+                </Grid>
+              </Grid>
             </Box>
           </Collapse>
         </TableCell>
