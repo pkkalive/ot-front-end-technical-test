@@ -18,6 +18,20 @@ export default createMuiTheme({
       fontFamily: "Raleway",
       color: white
     },
-  }
-
+  },
+  overrides: {
+    MuiTableCell: {
+      root: {
+        border: `1px solid ${grey}`,
+      },
+    },
+    MuiTableRow:{
+      root: {
+        '& > *': {
+          borderBottom: 'unset',
+        },
+      },
+    }
+  },
+  
 });
