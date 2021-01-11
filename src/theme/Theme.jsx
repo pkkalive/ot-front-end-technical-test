@@ -20,6 +20,11 @@ export default createMuiTheme({
     },
   },
   overrides: {
+    MuiPaper :{
+      root: {
+        boxShadow: "none !important"
+      },
+    },
     MuiTableCell: {
       root: {
         border: `1px solid ${grey}`,

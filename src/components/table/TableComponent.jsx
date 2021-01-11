@@ -8,7 +8,8 @@ import TableBody from './tableHelper/TableBody';
 
 function TableComponent() {
   const dispatch = useDispatch();
-  const tableData = useSelector(state => state?.getTableData?.tableData)
+  const tableData = useSelector(state => state?.getTableData?.tableData);
+  const chartData = useSelector(state => state?.getChartData?.chartData);
 
   useEffect(() => {
     dispatch(getTableData())
@@ -20,11 +21,10 @@ function TableComponent() {
       tableData && (
         <Table aria-label="collapsible table">
           <TableHeader headCells = {headCells} />
-          <TableBody rows = {tableData} />
+          <TableBody rows = {tableData} charts = {chartData}/>
         </Table>
       )
     }
-      
     </TableContainer>
 
   )
