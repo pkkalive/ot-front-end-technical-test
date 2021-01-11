@@ -20,7 +20,7 @@ function TableComponent() {
       tableData && (
         <Table aria-label="collapsible table">
           <TableHeader headCells = {headCells} />
-          <TableBody row = {tableData} />
+          <TableBody rows = {tableData} />
         </Table>
       )
     }
