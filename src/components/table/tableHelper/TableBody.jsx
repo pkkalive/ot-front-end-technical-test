@@ -20,10 +20,12 @@ function Row(props) {
       align: "left"
     },
     "yAxis":{
-      "lineWidth": 0,
       "min": 0,
       title: {
-        text: "Score"
+        text: "Score",
+        style: {
+          fontWeight: "bold"
+        },
       },
     },
     "xAxis": {
@@ -33,11 +35,18 @@ function Row(props) {
       "tickmarkPlacement": 'on',
       labels: {
         rotation: 315,
+        style: {
+          fontWeight: "bold",
+          fontSize: 10,
+        },
       },
       title: {
-        text: "Data"
+        text: "Data",
+        style: {
+          fontWeight: "bold"
+        },
       },
-      "lineWidth": 0,
+      
     },
     legend: {
       enabled: false
@@ -65,6 +74,12 @@ function Row(props) {
       "tickmarkPlacement": 'on',
       "lineWidth": 0,
       "type": "category",
+      labels: {
+        style: {
+          fontWeight: "bold",
+          fontSize: 10,
+        },
+      },
     },
     "yAxis": {
       "gridLineInterpolation": 'circle',
@@ -100,11 +115,11 @@ function Row(props) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
-              <Grid container spacing={2} >
-                <Grid item xs={12} sm={6}>
+              <Grid container spacing={4} justify="space-around" >
+                <Grid item xs={12} sm={5}>
                   <BarChart options={barOptions} />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={5}>
                   <BarChart options={spiderWebOptions} />
                 </Grid>
               </Grid>
@@ -123,9 +138,9 @@ export default function (props) {
   return (
     <TableBody>
       {
-        rows.map((row) => {
+        rows.slice(0, 5).map((row) => {
           return (
-            <Row key={row.id} row = {row} />
+            <Row key={row.id} row = {row } />
           )
         })
       }

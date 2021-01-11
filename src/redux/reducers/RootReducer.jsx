@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-import { getTableData, getChartData } from './TableReducer';
+import { getTableData } from './TableReducer';
 
 export default combineReducers({
   getTableData,
-  getChartData,
 })
