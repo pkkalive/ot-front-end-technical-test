@@ -7,7 +7,6 @@ import BarChart from '../../charts/Charts'
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
-
   const barOptions = {
     "chart": {
       "type": "column",
@@ -92,7 +91,7 @@ function Row(props) {
     colors: ["#398ac8"],
     "series": [
       {
-        "data": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7],
+        "data": row.spiderWeb,
         "pointPlacement": 'on'
       }
     ],

@@ -28,4 +28,6 @@ async function callAPI (url, method, headers, body){
   }
 }
 
-export const GET = (url, headers = {}) => callAPI(url, "GET", headers);
+const GET = (url, headers = {}) => callAPI(url, "GET", headers);
+
+export const getAPI = (process.env.NODE_ENV === "test") ? axios.get : GET
