@@ -1,9 +1,7 @@
-import React, {Fragment} from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles } from "@material-ui/styles";
-import Typography from '@material-ui/core/Typography';
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import { Fragment, cloneElement } from 'react';
+import { makeStyles } from '@material-ui/styles';
+import { titles } from '../../utilities/Constants';
+import { AppBar, Toolbar, Typography, useScrollTrigger } from '@material-ui/core';
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -11,8 +9,7 @@ function ElevationScroll(props) {
     disableHysteresis: true,
     threshold: 0
   });
-
-  return React.cloneElement(children, {
+  return cloneElement(children, {
     elevation: trigger ? 4 : 0
   });
 }
@@ -33,7 +30,7 @@ function Header() {
       <ElevationScroll>
         <AppBar position="fixed">
           <Toolbar disableGutters>
-            <Typography variant="h6" className={classes.p15}>EMBL Coding Challenge</Typography>
+            <Typography variant="h6" className={classes.p15}>{titles.heading}</Typography>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

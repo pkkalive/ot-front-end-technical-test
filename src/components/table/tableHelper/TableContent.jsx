@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { TableCell, TableBody, TableRow, IconButton, Collapse, Box, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
@@ -6,7 +6,7 @@ import BarChart from '../../charts/Charts'
 
 function Row(props) {
   const { row } = props;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const barOptions = {
     "chart": {
       "type": "column",
@@ -131,7 +131,7 @@ function Row(props) {
   
 }
 
-export default function (props) {
+function TableContent (props) {
   const { rows } = props;
 
   return (
@@ -146,3 +146,5 @@ export default function (props) {
     </TableBody>
   )
 }
+
+export default TableContent;

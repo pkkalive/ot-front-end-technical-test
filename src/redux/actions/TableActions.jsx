@@ -17,7 +17,7 @@ export function getTableData(){
         tableObj.name = item?.target?.gene_info.name;
         tableObj.overall = item?.association_score.overall;
         tableObj.datatypes = Object.entries(item?.association_score?.datatypes)
-        .map(item => Object.assign({}, { name: item[0], y: item[1] }));
+          .map(item => Object.assign({}, { name: item[0], y: item[1] }));
         tableObj.spiderWeb = Object.values(item?.association_score?.datatypes)
         tableData.push(tableObj);
         tableObj = Object.create({})
