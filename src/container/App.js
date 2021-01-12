@@ -3,7 +3,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import classes from './App.module.scss';
 import theme from '../theme/Theme';
 import { Card, CardContent, Typography } from '@material-ui/core';
-import { titles } from '../utilities/Constants';
+import { messages } from '../utilities/Constants';
 
 const Header = lazy(() => import('../components/header/Header'))
 const Table = lazy(() => import('../components/table/TableComponent'))
@@ -13,10 +13,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.content}>
-        <Suspense fallback={<h6>{titles.loadingHeader}</h6>}>
+        <Suspense fallback={<h6>{messages.loadingHeader}</h6>}>
           <Header />
-          <Suspense fallback={<h6>{titles.loadingContents}</h6>}>
-            <Typography variant="h4">{titles.tableHeading}</Typography>
+          <Suspense fallback={<h6>{messages.loadingContents}</h6>}>
+            <Typography variant="h4">{messages.tableHeading}</Typography>
             <Card>
               <CardContent>
                 <Table />
@@ -25,7 +25,7 @@ function App() {
           </Suspense>
         </Suspense>
       </div>
-      <Suspense fallback={<h6>{titles.loadingFooter}</h6>}>
+      <Suspense fallback={<h6>{messages.loadingFooter}</h6>}>
         <Footer />
       </Suspense>
     </ThemeProvider>

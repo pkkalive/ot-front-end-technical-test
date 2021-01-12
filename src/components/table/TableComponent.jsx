@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
+import { messages } from '../../utilities/Constants';
+import { headCells } from './tableHelper/HeadCells';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTableData } from '../../redux/actions/TableActions';
 import { Table, TableContainer, Paper } from '@material-ui/core';
-import TableHeader from './tableHelper/TableHeader';
-import { headCells } from './tableHelper/HeadCells';
-import TableContent from './tableHelper/TableContent';
+
+
+const TableHeader = lazy(()=> import('./tableHelper/TableHeader'));
+const TableContent = lazy(()=> import('./tableHelper/TableContent'));
 
 function TableComponent() {
   const dispatch = useDispatch();
@@ -19,10 +22,12 @@ function TableComponent() {
     <TableContainer component={Paper}>
     {
       tableData && (
-        <Table aria-label="collapsible table">
-          <TableHeader headCells = {headCells} />
-          <TableContent rows = {tableData} charts = {chartData}/>
-        </Table>
+        <Suspense fallback={<h6>{messages.loadingTable}</h6>}>
+          <Table aria-label="collapsible table">
+            <TableHeader headCells = {headCells} />
+            <TableContent rows = {tableData} charts = {chartData}/>
+          </Table>
+        </Suspense>
       )
     }
     </TableContainer>
