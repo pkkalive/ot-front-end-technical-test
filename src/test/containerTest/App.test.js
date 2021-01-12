@@ -7,9 +7,15 @@
 //   const linkElement = getByText(/learn react/i);
 //   expect(linkElement).toBeInTheDocument();
 // });
-const add = (a, b) => a + b;
+import Enzyme, { shallow } from 'enzyme';
+import App from '../../container/App';
+import Adapter from 'enzyme-adapter-react-16';
 
-test('should add two numbers', () => {
-  const sum = add(3, 4);
-  expect(sum).toBe(7);
-});
+Enzyme.configure({adapter: new Adapter()});
+
+describe('Chart Component', () => {
+  test("renders", async () => {
+    const wrapper = shallow(<App />)
+    expect(wrapper.exists()).toBe(true);
+  })
+})

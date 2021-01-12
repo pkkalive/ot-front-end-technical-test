@@ -5,9 +5,9 @@ import theme from '../theme/Theme';
 import { Card, CardContent, Typography } from '@material-ui/core';
 import { messages } from '../utilities/Constants';
 
-const Header = lazy(() => import('../components/header/Header'))
-const Table = lazy(() => import('../components/table/TableComponent'))
-const Footer = lazy(() => import('../components/footer/Footer'))
+export const Header = lazy(() => import('../components/header/Header'))
+export const Table = lazy(() => import('../components/table/TableComponent'))
+export const Footer = lazy(() => import('../components/footer/Footer'))
 
 function App() {
   return (
