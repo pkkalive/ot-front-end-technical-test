@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --coverage --watchAll=true",
+    "test": "react-scripts test --env=jsdom --coverage --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -55,7 +55,8 @@
       "./src/setupTests.js",
       "./src/redux/store/Store.jsx",
       "./src/redux/reducers/RootReducers.jsx",
-      "./src/utilities"
+      "./src/utilities",
+      "./src/serviceWorker.js"
     ]
   }
 }

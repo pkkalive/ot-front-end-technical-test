@@ -6,7 +6,7 @@ import { BAR_CHART, SPIDER_WEB_CHART } from '../../../redux/actionTypes/ActionTy
 import { TableCell, TableBody, TableRow, IconButton, Collapse, 
   Box, Grid } from '@material-ui/core';
 
-function Row(props) {
+export function Row(props) {
   const { row } = props;
   const [open, setOpen] = useState(false);
 

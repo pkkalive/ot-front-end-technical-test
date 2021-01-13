@@ -12,7 +12,6 @@ const TableContent = lazy(()=> import('./tableHelper/TableContent'));
 function TableComponent() {
   const dispatch = useDispatch();
   const tableData = useSelector(state => state?.getTableData?.tableData);
-  const chartData = useSelector(state => state?.getChartData?.chartData);
 
   useEffect(() => {
     dispatch(getTableData())
@@ -25,7 +24,7 @@ function TableComponent() {
         <Suspense fallback={<h6>{messages.loadingTable}</h6>}>
           <Table aria-label="collapsible table">
             <TableHeader headCells = {headCells} />
-            <TableContent rows = {tableData} charts = {chartData}/>
+            <TableContent rows = {tableData} />
           </Table>
         </Suspense>
       )

@@ -54,7 +54,7 @@ const mockData = {
   ]
 }
 
-const expectedMockData = [
+export const expectedMockData = [
   {
     "symbol": "EGFR",
     "name": "epidermal growth factor receptor",
@@ -136,7 +136,7 @@ describe('Table Actions', () => {
     const store = mockStore();
     const expectedActions = {
       type: types.GET_TABLE_DATA,
-      payload: [expectedMockData]
+      payload: expectedMockData
     }
     axios.get.mockImplementation(() => Promise.resolve({data: mockData}))
     store.dispatch(actions.getTableData()).then(() => {
