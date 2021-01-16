@@ -6,6 +6,14 @@ import { BAR_CHART, SPIDER_WEB_CHART } from '../../../redux/actionTypes/ActionTy
 import { TableCell, TableBody, TableRow, IconButton, Collapse, 
   Box, Grid } from '@material-ui/core';
 
+export function RenderTabelCell(props) {
+  return (
+    Object.keys(props.row)
+    .filter(key => (key !== "datatypes" && key !== "spiderWeb"))
+    .map(key => <TableCell key={key}>{props.row[key]}</TableCell>)
+  )
+}
+
 export function Row(props) {
   const { row } = props;
   const [open, setOpen] = useState(false);
@@ -18,10 +26,7 @@ export function Row(props) {
             {open ? <RemoveIcon fontSize='large'/> : <AddIcon fontSize='large'/>}
           </IconButton>
         </TableCell>
-        <TableCell component='th' scope='row'>{row.symbol}</TableCell>
-        <TableCell >{row.id}</TableCell>
-        <TableCell >{row.name}</TableCell>
-        <TableCell >{row.overall}</TableCell>
+        <RenderTabelCell row = {row}/>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -55,3 +60,8 @@ function TableContent (props) {
 }
 
 export default TableContent;
+
+// <TableCell component='th' scope='row'>{row.symbol}</TableCell>
+//         <TableCell >{row.id}</TableCell>
+//         <TableCell >{row.name}</TableCell>
+//         <TableCell >{row.overall}</TableCell>
